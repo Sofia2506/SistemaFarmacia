@@ -1,4 +1,4 @@
-#include "añadir.cpp"
+#include "funciones/añadir.cpp"
 
 int main(){
 

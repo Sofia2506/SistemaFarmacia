@@ -1,5 +1,5 @@
 #include <fstream>
-#include "producto.h"
+#include "../clases/producto.h"
 
 string transformarProductoAstring(Producto &producto){
     string line = producto.codigo + ";" + producto.categoria + ";" + 
@@ -15,7 +15,7 @@ string transformarProductoAstring(Producto &producto){
 
 void aniadirProducto(Producto &producto){
     ofstream archivo;
-    archivo.open("productos.txt", ios::app);
+    archivo.open("database-txt/productos.txt", ios::app);
     if(archivo.fail()){
         cout << "No se pudo abrir el archivo";
     }
