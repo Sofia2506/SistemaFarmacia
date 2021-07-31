@@ -3,7 +3,7 @@
 #include "producto.h"
 using namespace std;
 
-class almacen{
+class Almacen{
     private:
-        producto product;
+        Producto product;
 };

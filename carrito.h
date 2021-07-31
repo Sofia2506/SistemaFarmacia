@@ -1,4 +1,4 @@
-class carrito{
+class Carrito{
     private:
 
     public:

@@ -8,7 +8,7 @@ struct Fila{
     string nombreProducto;
     double precioProducto;
 };
-class boleta{
+class Boleta{
     private:
         string codigo;
         Fila filas; //sería un arreglo pero [n]
