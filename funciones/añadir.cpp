@@ -24,6 +24,4 @@ void aniadirProducto(Producto &producto){
 
     archivo.close();
 
-
-
 }

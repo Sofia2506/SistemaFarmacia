@@ -1,4 +1,4 @@
-#include "funciones/añadir.cpp"
+#include "funciones/extraer.cpp"
 
 int main(){
 
@@ -15,6 +15,8 @@ int main(){
     producto1.stock = 500;
 
     aniadirProducto(producto1);
+
+    extraerProducto("79653A;Categoria;2021;7;29;Naproxeno;0.200000;unidad;null;500");
 
 
 }
