@@ -2,6 +2,8 @@
 
 int main(){
 
+
+/*
     Producto producto1;
     producto1.codigo = "79653A";
     producto1.categoria = "Categoria";
@@ -17,6 +19,6 @@ int main(){
     aniadirProducto(producto1);
 
     extraerProducto("79653A;Categoria;2021;7;29;Naproxeno;0.200000;unidad;null;500");
-
+*/
 
 }
