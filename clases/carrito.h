@@ -12,7 +12,7 @@ class Carrito{
     public:
         void generarBoleta();
         void aniadirProductoCarrito(ProdCant fila);
-        void modificar(ProdCant fila, int cantNueva);
+        void modificar(int pos, int cantNueva);
         void modificar();
         void verProductos();
         void eliminarProductoCarrito();
