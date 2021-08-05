@@ -8,7 +8,7 @@ string extraerDatoPro(string &line){
     return dato;
 }
 
-Producto extraerProducto(string line){
+Producto extraerProTxt(string line){
     
     string proCod = extraerDatoPro(line);
     
@@ -64,7 +64,7 @@ Producto* extraerProductos(){
     int cont = 0;
     while (!archivo.eof()){
         getline(archivo, productoLine);
-        productos[cont] = extraerProducto(productoLine);
+        productos[cont] = extraerProTxt(productoLine);
         cont++;
     }
 

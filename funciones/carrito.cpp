@@ -16,7 +16,7 @@ void modificar(){
 void eliminarProductoCarrito(){
 
 }
-void añadirProductoCarrito(){
+void aniadirProductoCarrito(){
     cout << "";
 }
 void verProductos(){

@@ -1,4 +1,4 @@
-#include "producto.h"
+#include "../funciones/extraer.cpp"
 struct ProdCant{
     Producto p;
     int cant;

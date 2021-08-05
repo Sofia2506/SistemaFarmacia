@@ -1,15 +1,18 @@
-#include "funciones/extraer.cpp"
-#include "clases/carrito.h"
-void mostrarMenu();
+#include "funciones/carrito.cpp"
+
 void agregarProducto();
 bool buscarProducto();
 bool busquedaPorCodigo();
 void verCarrito();
+void mostrarProductos();
+void mostrarMenu();
+
+Producto *productos ;
 Carrito *carrito=new Carrito();
 int main(){
 
     cout<<"-----Bienvenido al sistema de control de ventas de la farmacia----"<<endl;
-    
+    productos = extraerProductos();
     while(true){
         mostrarMenu();
     }
@@ -18,31 +21,36 @@ int main(){
 void mostrarMenu(){
     cout<<"Menu principal"<<endl;
     cout<<"\t1.Agregar producto"<<endl;
-    cout<<"\t2.Buscar produocto"<<endl;
+    cout<<"\t2.Buscar producto"<<endl;
     cout<<"\t3.Salir"<<endl;
     //Selecciona una opción
     int opcion;
     cin>>opcion;
-    switch (opcion)
-    {
-    case 1: agregarProducto();
+    switch (opcion){
+        case 1:{
+            agregarProducto();
+        } 
         break;
-    case 2 :  
-        bool confirm=true;
-        while(confirm){
-           confirm = buscarProducto();
+        case 2 :{
+             bool confirm = true;
+            while(confirm){
+                confirm = buscarProducto();
+            }
+        }  
+        break;
+        case 3:{
+            cout<<"Hasta pronto :3"<<endl;
+            exit(-1);
         }
         break;
-    case 3: cout<<"Hasta pronto :3"<<endl;
-        exit(-1);
-    default:cout<<"Ingreso una opcion invalida";
-        break;
+        default:
+            cout<<"Ingreso una opcion invalida";
     }
     
 }
 
 void agregarProducto(){
-    Producto producto;
+    static Producto producto;
     cout<<"Para agregar un producto al almacen llene todos los dostos necesarios"<<endl;
     cout<<"Ingrese codigo de producto"<<endl;
     string codigo;
@@ -84,27 +92,45 @@ void agregarProducto(){
     producto.stock = stock;
     aniadirProducto(producto);
 }
+
+void mostrarProductos(){
+    for (int i = 0; i < 100; i++){
+        Producto *prod = &productos[i];
+        if ( prod){
+            cout << (i+1) << ". " << prod->nombre << " " << prod->precio_venta;
+        }
+        else{
+            break;
+        }
+    }
+}
+
 bool buscarProducto(){
     cout<<"\t1.Busqueda por codigo "<<endl;
     cout<<"\t2.Mostrar Carrito"<<endl;
-    int respuesta;
+    int respuesta;           
     cin>>respuesta;
     switch (respuesta)
     {
-    case 1:
-        bool confirm=true;
-        while(confirm){
-        busquedaPorCodigo();
-        }
+        case 1:
+            {
+            bool confirm=true;
+            while(confirm){
+            busquedaPorCodigo();
+            }
+            }
         break;
-    case 2:
-        verCarrito();
+        case 2:
+            {
+            verCarrito();
+            }
         break;
-    default:cout<<"Ingreso un valor no valido";
+        default:
+            {cout<<"Ingreso un valor no valido";}
         break;
     }
     cout<<"¿Desea seguir buscando?(SI=1,No=0)"<<endl;
-    int respuesta;
+    cin>>respuesta;
     if(respuesta==0){
         return true;
     }
@@ -115,8 +141,13 @@ bool buscarProducto(){
     extraerProducto("79653A;Categoria;2021;7;29;Naproxeno;0.200000;unidad;null;500");
     */
 }
+
+
+
 bool busquedaPorCodigo(){
     //falta code aquí de visualizar todos los productos que tenemos..
+    mostrarProductos();
+    
     cout<<"Ingrese el codigo del producto que desea buscar"<<endl;
     string code;
     cin>>code;
@@ -127,8 +158,10 @@ bool busquedaPorCodigo(){
     //obtienes producto y lo añades al carrito
     //en teoría el producto que esta justo abajo. es el que me retornas tú despues
     //de que escoja otro..
-    Producto producto;
-    cout<<"¿Cuantos desea comprar?"<<endl;
+
+
+    Producto producto = productos[atoi(code.c_str())-1];
+    cout <<"¿Cuantos desea comprar?"<<endl;
     int cantidadCompra;
     cin>>cantidadCompra;
     ProdCant productoComprado = {producto,cantidadCompra};
@@ -156,20 +189,28 @@ void verCarrito(){
     switch (respuesta)
     {
     case 1:
+        {
         carrito->eliminarProductoCarrito();
+        }
         break;
     case 2:
+        {
         carrito->generarBoleta();
+        }
         break;
     case 3:
+        {
         bool confirm=true;
         while(confirm){
             buscarProducto;
         }
         verCarrito();
+        }
         break;
     case 4:
+        {
         carrito->modificar();
+        }
     case 5:
         break;
     default:
