@@ -1,6 +1,8 @@
 #include <fstream>
 #include "../clases/producto.h"
 
+//Transforma un producto en un string
+//Con la estructura de guardado
 string transformarProductoAstring(Producto &producto){
     string line = producto.codigo + ";" + producto.categoria + ";" + 
                     to_string(producto.fecha_vencimiento.anio) + ";" +
@@ -13,6 +15,7 @@ string transformarProductoAstring(Producto &producto){
     return line;
 }
 
+//Añade producto al txt
 void aniadirProducto(Producto &producto){
     ofstream archivo;
     archivo.open("database-txt/productos.txt", ios::app);
