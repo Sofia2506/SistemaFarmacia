@@ -12,6 +12,11 @@ int main(){
     c1->aniadirProductoCarrito(fila);
     c1->aniadirProductoCarrito(fila2);
     c1->verProductos();
-    c1->modificar();
+    //c1->modificar();
+    //c1->verProductos();
+    c1->eliminarProductoCarrito();
+    c1->verProductos();
+    c1->aniadirProductoCarrito(fila);
+    cout << "----despues de anadir medicina----"<<endl;
     c1->verProductos();
 }

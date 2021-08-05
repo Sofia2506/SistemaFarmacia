@@ -30,7 +30,7 @@ void mostrarMenu(){
     case 2 :  
         bool confirm=true;
         while(confirm){
-           confirm = buscarProducto();
+            confirm = buscarProducto();
         }
         break;
     case 3: cout<<"Hasta pronto :3"<<endl;
