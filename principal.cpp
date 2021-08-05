@@ -30,7 +30,6 @@ void mostrarMenu(){
     cin>>opcion;
     switch (opcion){
         case 1:{
-            system("cls");//Limpia la pantalla
             agregarProducto();
         } 
         break;
