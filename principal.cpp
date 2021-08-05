@@ -175,7 +175,7 @@ void verCarrito(){
     cout<<"¿Que desea hacer?"<<endl;
     cout<<"\t1.Quitar un producto del carrito"<<endl;
     cout<<"\t2.Confirmar venta"<<endl;
-    cout<<"\t3.Aniadir otro producto"<<endl;
+    cout<<"\t3.Añadir otro producto"<<endl;
     cout<<"\t4.Modificar compra"<<endl;
     cout<<"\t5.Cancelar todo"<<endl;
     int respuesta;
@@ -197,7 +197,7 @@ void verCarrito(){
         {
         bool confirm=true;
         while(confirm){
-            buscarProducto;
+            confirm = busquedaPorCodigo();
         }
         verCarrito();
         }

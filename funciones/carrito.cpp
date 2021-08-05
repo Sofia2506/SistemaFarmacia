@@ -55,13 +55,13 @@ void Carrito::generarBoleta(){
 	imprimir << " Fecha: "
 			 << " " << Fecha() << " " << Hora() << endl;
 	imprimir << " --------------------------------------------------------------------------" << endl;
-	imprimir << " Cant Producto Precio Importe " << endl;
+	imprimir << " Cant  Producto                            Precio                 Importe " << endl;
 	imprimir << " --------------------------------------------------------------------------" << endl;
 	for (int i = 0; i < contador; i++)
 	{
 		punt[i].p;
 		imprimir << setw(5) << punt[i].cant;
-		;
+		
 		imprimir << setw(11) << punt[i].p.nombre;
 		imprimir << setw(31) << punt[i].p.precio_venta;
 		imprimir << setw(20) << punt[i].cant * punt[i].p.precio_venta << endl;
