@@ -6,7 +6,7 @@ struct ProdCant{
 
 class Carrito{
     private:
-        int tamArreglo = 0;
+        int tamArreglo;
         ProdCant *punt = new ProdCant[100];
 
     public:
@@ -16,6 +16,7 @@ class Carrito{
         void modificar();
         void verProductos();
         void eliminarProductoCarrito();
+        void eliminarProductoCarrito(int pos);
         void aniadirProductoCarrito();
 };
 

@@ -34,7 +34,7 @@ void mostrarMenu(){
         } 
         break;
         case 2 :{
-             bool confirm = true;
+            bool confirm = true;
             while(confirm){
                 confirm = buscarProducto();
             }

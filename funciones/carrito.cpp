@@ -8,6 +8,7 @@ void Carrito::aniadirProductoCarrito(ProdCant fila){
     punt[contador] = fila;
     contador++;
 }
+
 //función que modifica la cantidad de un producto a llevar
 void Carrito::modificar(int pos, int cantNueva){
     punt[pos].cant = cantNueva;
@@ -22,14 +23,17 @@ void Carrito::modificar(){
     cin >> cantNueva;
     Carrito::modificar(num-1, cantNueva);
 }
-
-
-void Carrito::eliminarProductoCarrito(){
-
+void Carrito::eliminarProductoCarrito(int pos){
+    for(int i=pos+1; i<contador;pos++, i++){
+        punt[pos] = punt[pos+1];
+    }
+    contador--;
 }
-
-void Carrito::aniadirProductoCarrito(){
-    cout << "";
+void Carrito::eliminarProductoCarrito(){
+    int num;
+    cout << "Ingrese el numero del producto a eliminar: ";
+    cin >> num;
+    Carrito::eliminarProductoCarrito(num-1);
 }
 
 //Muestra los productos del carrito
