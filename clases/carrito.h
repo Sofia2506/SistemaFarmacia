@@ -10,8 +10,11 @@ class Carrito{
 
     public:
         void generarBoleta();
-        void añadirProducto(ProdCant fila);
+        void aniadirProductoCarrito(ProdCant fila);
         void modificar(ProdCant fila);
+        void modificar();
+        void verProductos();
+        void eliminarProductoCarrito();
 };
 
 

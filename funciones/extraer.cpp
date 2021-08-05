@@ -1,4 +1,5 @@
-#include "añadir.cpp"
+#include "aniadir.cpp"
+
 
 string extraerDatoPro(string &line){
     int pos = line.find(";");
