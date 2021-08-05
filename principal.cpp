@@ -1,5 +1,6 @@
 
 #include "funciones/carrito.cpp"
+#include <stdlib.h>
 void agregarProducto();
 bool buscarProducto();
 bool busquedaPorCodigo();
@@ -7,8 +8,8 @@ void verCarrito();
 void mostrarProductos();
 void mostrarMenu();
 
-Producto *productos ;
-Carrito *carrito=new Carrito();
+Producto *productos ; //Productos registrados en el sistema
+Carrito *carrito=new Carrito();// Carrito de Compras
 int main(){
 
     cout<<"-----Bienvenido al sistema de control de ventas de la farmacia----"<<endl;
@@ -18,16 +19,18 @@ int main(){
     }
 }
 
+//Menu principal del Sistema
 void mostrarMenu(){
+    //Opciones
     cout<<"Menu principal"<<endl;
     cout<<"\t1.Agregar producto"<<endl;
     cout<<"\t2.Buscar producto"<<endl;
     cout<<"\t3.Salir"<<endl;
-    //Selecciona una opción
     int opcion;
     cin>>opcion;
     switch (opcion){
         case 1:{
+            system("cls");//Limpia la pantalla
             agregarProducto();
         } 
         break;
@@ -48,51 +51,51 @@ void mostrarMenu(){
     }
     
 }
-
+//Pide caracteristicas del producto y lo agrega.
 void agregarProducto(){
     static Producto producto;
-    cout<<"Para agregar un producto al almacen llene todos los dostos necesarios"<<endl;
-    cout<<"Ingrese codigo de producto"<<endl;
+    cout<<"Para agregar un producto al almacen llene todos los dostos necesarios:"<<endl;
+    cout<<"Ingrese codigo de producto:"<<endl;
     string codigo;
     cin >>codigo;
     producto.codigo = codigo;
-    cout<<"Ingrese la categoria del producto"<<endl;
+    cout<<"Ingrese la categoria del producto:"<<endl;
     string categoria;
     cin>>categoria;
     producto.categoria =categoria;
-    cout<<"Ingrese le fecha vencimiento del producto(DIA)"<<endl;
+    cout<<"Ingrese le fecha vencimiento del producto(DIA):"<<endl;
     int dia;
     cin>>dia;
     producto.fecha_vencimiento.dia = dia;
-    cout<<"Ingrese le fecha vencimiento del producto(MES)"<<endl;
+    cout<<"Ingrese le fecha vencimiento del producto(MES):"<<endl;
     int mes;
     cin>>mes;
     producto.fecha_vencimiento.mes = mes;
-    cout<<"Ingrese le fecha vencimiento del producto(ANIO)"<<endl;
+    cout<<"Ingrese le fecha vencimiento del producto(ANIO):"<<endl;
     int anio;
     cin>>anio;
     producto.fecha_vencimiento.dia = anio;
-    cout<<"Ingrese el nombre del producto"<<endl;
+    cout<<"Ingrese el nombre del producto:"<<endl;
     string nombre;
     cin>>nombre;
     producto.nombre=nombre;
-    cout<<"Ingrese precio de venta";
+    cout<<"Ingrese precio de venta:"<<endl;
     double venta;
     cin>>venta;
     producto.precio_venta = venta;
-    cout<<"Ingrese la unidad de medida";
+    cout<<"Ingrese la unidad de medida:"<<endl;
     string unidad;
     cin>>unidad;
     producto.unidad_medida = unidad;
-    //falta descripcción
-    producto.descripcion ="null";
-    cout<<"Ingrese el stock del producto";
+    cout<<"Ingrese el stock del producto:"<<endl;
     int stock;
     cin>>stock;
     producto.stock = stock;
+    //Añade producto en el txt;
     aniadirProducto(producto);
 }
 
+//Mostrar todos los productos 
 void mostrarProductos(){
     for (int i = 0; i < 100; i++){
         Producto *prod = &productos[i];
@@ -105,8 +108,10 @@ void mostrarProductos(){
     }
 }
 
+//Menu de venta buscar producto o mostrar carrito
 bool buscarProducto(){
-    cout<<"\t1.Busqueda por codigo "<<endl;
+    //Opciones
+    cout<<"\t1.Busqueda"<<endl;
     cout<<"\t2.Mostrar Carrito"<<endl;
     int respuesta;           
     cin>>respuesta;
@@ -137,29 +142,17 @@ bool buscarProducto(){
     else{
         return false;
     }
-    /*
-    extraerProducto("79653A;Categoria;2021;7;29;Naproxeno;0.200000;unidad;null;500");
-    */
+  
 }
 
 
-
+//Realiza busqueda del producto.
 bool busquedaPorCodigo(){
-    //falta code aquí de visualizar todos los productos que tenemos..
     mostrarProductos();
-    
     cout<<"Ingrese el codigo del producto que desea buscar"<<endl;
     string code;
     cin>>code;
-    //empieza a buscar el producto y luego obtienes un producto
-    //--Insertar code--falta code ue retorna un producto 
-    //muestra la info de todo ese producto
-    //--Insertar ese code--
-    //obtienes producto y lo añades al carrito
-    //en teoría el producto que esta justo abajo. es el que me retornas tú despues
-    //de que escoja otro..
-
-
+   
     Producto producto = productos[atoi(code.c_str())-1];
     cout <<"¿Cuantos desea comprar?"<<endl;
     int cantidadCompra;
@@ -169,16 +162,17 @@ bool busquedaPorCodigo(){
     cout<<"¿Desea seguir buscando por codigo?(SI=1,No=0)"<<endl;
     int respuesta;
     cin>>respuesta;
-    if(respuesta==1){
+    if(respuesta==1)
         return true;
-    }
-    else{
+    else
         return false;
-    }
+    
 }
 
+//Menu del carrito de compras
 void verCarrito(){
     carrito->verProductos();
+    //Opciones
     cout<<"¿Que desea hacer?"<<endl;
     cout<<"\t1.Quitar un producto del carrito"<<endl;
     cout<<"\t2.Confirmar venta"<<endl;
@@ -196,7 +190,8 @@ void verCarrito(){
         break;
     case 2:
         {
-        //carrito->generarBoleta();
+        carrito->generarBoleta();
+        cout << "Venta Exitosa!!"<<endl;
         }
         break;
     case 3:

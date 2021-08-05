@@ -1,6 +1,6 @@
 #include "aniadir.cpp"
 
-
+//Extrae datos de la estructura de guardado
 string extraerDatoPro(string &line){
     int pos = line.find(";");
     string dato = line.substr(0, pos);
@@ -8,6 +8,7 @@ string extraerDatoPro(string &line){
     return dato;
 }
 
+//Extrae un producto del txt
 Producto extraerProTxt(string line){
     
     string proCod = extraerDatoPro(line);
@@ -49,9 +50,7 @@ Producto extraerProTxt(string line){
 }
 
 
-
-
-
+//Extrae todos los productos del txt
 Producto* extraerProductos(){
     ifstream archivo;
     string productoLine;
