@@ -116,19 +116,22 @@ bool buscarProducto(){
     */
 }
 bool busquedaPorCodigo(){
+    //falta code aquí de visualizar todos los productos que tenemos..
     cout<<"Ingrese el codigo del producto que desea buscar"<<endl;
     string code;
     cin>>code;
     //empieza a buscar el producto y luego obtienes un producto
-    //--Insertar code--
+    //--Insertar code--falta code ue retorna un producto 
+    //muestra la info de todo ese producto
+    //--Insertar ese code--
     //obtienes producto y lo añades al carrito
+    //en teoría el producto que esta justo abajo. es el que me retornas tú despues
+    //de que escoja otro..
     Producto producto;
     cout<<"¿Cuantos desea comprar?"<<endl;
     int cantidadCompra;
     cin>>cantidadCompra;
     ProdCant productoComprado = {producto,cantidadCompra};
-    //:"v no se añade al carrito
-    
     carrito->aniadirProductoCarrito(productoComprado); 
     cout<<"¿Desea seguir buscando?(SI=1,No=0)"<<endl;
     int respuesta;
