@@ -1,4 +1,4 @@
-#include "funciones/extraer.cpp"
+
 #include "clases/carrito.h"
 void mostrarMenu();
 void agregarProducto();
