@@ -4,3 +4,4 @@
 79653A;Categoria;2021;7;29;Naproxeno;0.200000;unidad;null;500
 79653A;Categoria;2021;7;29;Naproxeno;0.200000;unidad;null;500
 79653A;Categoria;2021;7;29;Naproxeno;0.200000;unidad;null;500
+ASDSAD8;BEBES;0;8;2025;Paracetamol;7.500000;Unidad;null;50

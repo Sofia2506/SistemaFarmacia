@@ -96,8 +96,8 @@ void agregarProducto(){
 void mostrarProductos(){
     for (int i = 0; i < 100; i++){
         Producto *prod = &productos[i];
-        if ( prod){
-            cout << (i+1) << ". " << prod->nombre << " " << prod->precio_venta;
+        if ( prod->precio_venta != 0){
+            cout << (i+1) << ". " << prod->nombre << " " << prod->precio_venta << endl;
         }
         else{
             break;
@@ -116,7 +116,7 @@ bool buscarProducto(){
             {
             bool confirm=true;
             while(confirm){
-            busquedaPorCodigo();
+             confirm = busquedaPorCodigo();
             }
             }
         break;
@@ -129,9 +129,9 @@ bool buscarProducto(){
             {cout<<"Ingreso un valor no valido";}
         break;
     }
-    cout<<"¿Desea seguir buscando?(SI=1,No=0)"<<endl;
+    cout<<"¿Desea seguir buscando Producto o ver su carrito?(SI=1,No=0)"<<endl;
     cin>>respuesta;
-    if(respuesta==0){
+    if(respuesta==1){
         return true;
     }
     else{
@@ -165,10 +165,11 @@ bool busquedaPorCodigo(){
     int cantidadCompra;
     cin>>cantidadCompra;
     ProdCant productoComprado = {producto,cantidadCompra};
-    carrito->aniadirProductoCarrito(productoComprado); 
-    cout<<"¿Desea seguir buscando?(SI=1,No=0)"<<endl;
+    carrito->aniadirProductoCarrito(productoComprado);
+    cout<<"¿Desea seguir buscando por codigo?(SI=1,No=0)"<<endl;
     int respuesta;
-    if(respuesta==0){
+    cin>>respuesta;
+    if(respuesta==1){
         return true;
     }
     else{
@@ -195,7 +196,7 @@ void verCarrito(){
         break;
     case 2:
         {
-        carrito->generarBoleta();
+        //carrito->generarBoleta();
         }
         break;
     case 3:
