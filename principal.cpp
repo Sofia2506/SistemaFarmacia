@@ -1,5 +1,5 @@
-#include "funciones/carrito.cpp"
 
+#include "funciones/carrito.cpp"
 void agregarProducto();
 bool buscarProducto();
 bool busquedaPorCodigo();
